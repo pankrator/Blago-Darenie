@@ -37,7 +37,6 @@
 				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 			</a>
-
 			<div id="navbar" class="navbar">
 				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
 					<h3 class="menu-toggle"><?php _e( 'Menu', 'twentythirteen' ); ?></h3>
@@ -45,6 +44,11 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 					<?php get_search_form(); ?>
 				</nav><!-- #site-navigation -->
+				<?php
+				if (is_front_page() || is_home()) {
+				echo do_shortcode("[metaslider id=55]");
+				}
+				?>
 			</div><!-- #navbar -->
 		</header><!-- #masthead -->
 
