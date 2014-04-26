@@ -859,6 +859,7 @@ img.wp-smiley,
 
 ul.nav-menu,
 div.nav-menu > ul {
+	background-color: #AAAAAA;
 	margin: 0;
 	padding: 0 40px 0 0;
 }
@@ -945,10 +946,17 @@ ul.nav-menu .focus > ul,
 
 /* Navbar */
 .navbar {
-	background-color: #f7f5e7;
+	border-style: solid;
+	border-color: #00FFC8;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width:2px;
+	border-left-width: 0px;
+	background-color: #BBBBBB;
 	margin: 0 auto;
 	max-width: 1600px;
 	width: 100%;
+	
 }
 
 .site-header .search-form {
