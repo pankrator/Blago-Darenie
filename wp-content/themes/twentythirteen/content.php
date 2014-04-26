@@ -17,7 +17,7 @@
 	$tags = wp_get_post_tags(get_the_ID());
 	foreach($tags as $tag) {
 		if($tag->name == "Main") {
-			$anchor = 'http://localhost/darenie/new-post-2/?category='.$category_id;
+			$anchor = '/darenie/new-post-2/?category='.$category_id;
 			$promise_anchor = '<a href="'.$anchor.'"><input type="button" id="user-submitted-post" name="user-submitted-post" value="Добави обещание" /></a>';
 			$promise = false;
 		}
