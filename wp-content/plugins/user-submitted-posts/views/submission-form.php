@@ -32,20 +32,38 @@ if (isset($authorName)) {
 
 		<?php if (($usp_options['usp_name'] == 'show') && ($usp_options['usp_use_author'] == false)) { ?>
 		<fieldset class="usp-name">
-			<label for="user-submitted-name"><?php _e('Your Name', 'usp'); ?></label>
-			<input name="user-submitted-name" type="text" value="" data-required="true" placeholder="<?php _e('Your Name', 'usp'); ?>" class="usp-input usp-required">
+			<label for="user-submitted-name"><?php echo "Име:"; ?></label>
+			<input name="user-submitted-name" type="text" value="" data-required="true" placeholder="<?php echo "Име"; ?>" class="usp-input usp-required">
 		</fieldset>
-		<?php } if (($usp_options['usp_url'] == 'show') && ($usp_options['usp_use_url'] == false)) { ?>
+		<?php } ?>
+		<fieldset class="usp-link">
+			<label for="custom-submitted-link"><?php echo "Линк:"; ?></label>
+			<input name="custom-submitted-link" type="text" value="" data-required="true" placeholder="<?php echo "Линк"; ?>" class="usp-input usp-required">
+		</fieldset>
+		<fieldset class="usp-email">
+			<label for="custom-submitted-email"><?php echo "E-mail:"; ?></label>
+			<input name="custom-submitted-email" type="text" value="" data-required="true" placeholder="<?php echo "E-mail"; ?>" class="usp-input usp-required">
+		</fieldset>
+		<?php if (($usp_options['usp_url'] == 'show') && ($usp_options['usp_use_url'] == false)) { ?>
 		<fieldset class="usp-url">
 			<label for="user-submitted-url"><?php _e('Your URL', 'usp'); ?></label>
 			<input name="user-submitted-url" type="text" value="" data-required="true" data-type="url" placeholder="<?php _e('Your URL', 'usp'); ?>" class="usp-input usp-required">
 		</fieldset>
 		<?php } if ($usp_options['usp_title'] == 'show') { ?>
 		<fieldset class="usp-title">
-			<label for="user-submitted-title"><?php _e('Post Title', 'usp'); ?></label>
-			<input name="user-submitted-title" type="text" value="" data-required="true" placeholder="<?php _e('Post Title', 'usp'); ?>" class="usp-input usp-required">
+			<label for="user-submitted-title"><?php echo "Обещание:"; ?></label>
+			<input name="user-submitted-title" type="text" value="" data-required="true" placeholder="<?php echo "Обещание"; ?>" class="usp-input usp-required">
 		</fieldset>
-		<?php } if ($usp_options['usp_tags'] == 'show') { ?>
+		<?php } ?>
+		<fieldset class="usp-count">
+			<label for="custom-submitted-count"><?php echo "Брой:"; ?></label>
+			<input name="custom-submitted-count" type="text" value="" data-required="true" placeholder="<?php echo "Брой"; ?>" class="usp-input usp-required">
+		</fieldset>
+		<fieldset class="usp-price">
+			<label for="custom-submitted-price"><?php echo "Пари в замяна:"; ?></label>
+			<input name="custom-submitted-price" type="text" value="" data-required="true" placeholder="<?php echo "Пари в замяна"; ?>" class="usp-input usp-required">
+		</fieldset>
+		<?php if ($usp_options['usp_tags'] == 'show') { ?>
 		<fieldset class="usp-tags">
 			<label for="user-submitted-tags"><?php _e('Post Tags', 'usp'); ?></label>
 			<input name="user-submitted-tags" id="user-submitted-tags" data-required="true" type="text" value="" placeholder="<?php _e('Post Tags', 'usp'); ?>" class="usp-input usp-required">
@@ -85,8 +103,8 @@ if (isset($authorName)) {
 				?>
 			</div>
 			<?php } else { ?>
-				<label for="user-submitted-content"><?php _e('Post Content', 'usp'); ?></label>
-				<textarea name="user-submitted-content" rows="5" data-required="true" placeholder="<?php _e('Post Content', 'usp'); ?>" class="usp-textarea"></textarea>
+				<label for="user-submitted-content"><?php echo "Описание:"; ?></label>
+				<textarea name="user-submitted-content" rows="5" data-required="true" placeholder="<?php echo "Описание"; ?>" class="usp-textarea"></textarea>
 			<?php } ?>
 		</fieldset>
 		<?php } if ($usp_options['usp_images'] == 'show') { ?>
@@ -134,7 +152,7 @@ if (isset($authorName)) {
 			<?php if ($usp_options['usp_use_cat'] == true) { ?>
 			<input class="hidden" type="hidden" name="user-submitted-category" value="<?php echo $usp_options['usp_use_cat_id']; ?>">
 			<?php } ?>
-			<input name="user-submitted-post" id="user-submitted-post" type="submit" value="<?php _e('Submit Post', 'usp'); ?>">
+			<input name="user-submitted-post" id="user-submitted-post" type="submit" value="<?php echo "Добави"; ?>">
 		</div>
 
 		<?php } ?>

@@ -26,6 +26,13 @@
 	$_SESSION['paybutton_name'] = $promise ? "Закупи" : "Дари";
 	
 	$offset = $promise ? "style='margin-left: 100px'" : "";
+	
+	$content = get_the_content(__( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentythirteen' ));
+	$priceIndexEnd = strrpos($content, "[[PRICEEND]]");
+	$priceIndexStart = strrpos($content, "[[PRICE]]");
+	$price = substr($content, $priceIndexStart + 9, $priceIndexEnd - $priceIndexStart - 9);
+	$price = intval($price);
+	
 ?> 
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo $offset; ?> >
@@ -62,7 +69,7 @@
 			echo $promise_anchor;
 		?>
 		<div style="float: right; ">
-			<?php echo do_shortcode('[wp_cart_button name="Test Product" price="29.95"]'); ?>
+			<?php echo do_shortcode('[wp_cart_button name="'.get_the_title().'" price="'.$price.'"]'); ?>
 		</div>
 	</div><!-- .entry-content -->
 	<?php endif; ?>

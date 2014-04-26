@@ -112,7 +112,22 @@ function usp_checkForPublicSubmission() {
 		} else {
 			$fileData = '';
 		}
-
+		
+		/** CUSTOM FIELDS **/
+		$link = stripslashes($_POST['custom-submitted-link']);
+		$email = stripslashes($_POST['custom-submitted-email']);
+		$count = stripslashes($_POST['custom-submitted-count']);
+		$price = stripslashes($_POST['custom-submitted-price']);
+		
+		//$_SESSION['']
+		
+		/** PREPARE content to show as expected **/
+		$customContent = "<div>Автор: <a href='$link'>".$authorName."</a>";
+		$customContent .= "<span style='float: right;'>".$price." лв.</span></div>";
+		$customContent .= "<span style='visibility: hidden' alt=".$price.">[[PRICE]]".$price."[[PRICEEND]]</span>";
+		
+		$content .= $customContent;
+		
 		$publicSubmission = usp_createPublicSubmission($title, $content, $authorName, $authorID, $authorUrl, $tags, $category, $fileData);
 
 		if (false == ($publicSubmission)) {
