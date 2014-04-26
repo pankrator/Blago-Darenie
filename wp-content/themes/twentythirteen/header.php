@@ -46,7 +46,7 @@
 				</nav><!-- #site-navigation -->
 				<?php
 				if (is_front_page() || is_home()) {
-				echo do_shortcode("[metaslider id=55]");
+				echo do_shortcode("[metaslider id=113]");
 				}
 				?>
 			</div><!-- #navbar -->
