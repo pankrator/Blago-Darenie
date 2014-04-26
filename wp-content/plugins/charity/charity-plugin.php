@@ -8,3 +8,7 @@
  * Author URI: gsfsdfdsfs
  * License: "MIT"
  */
+ 
+	require("charity-admin.php");
+ 
+?>
