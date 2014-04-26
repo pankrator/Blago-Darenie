@@ -229,6 +229,13 @@ add_filter('mce_css', 'usp_editor_style');
 add_shortcode ('user-submitted-posts', 'usp_display_form');
 function usp_display_form($atts=array(), $content=null) {
 	global $usp_options;
+	$categoryId = intval($_GET['category']);
+	
+	if($categoryId)
+	{
+		$usp_options['categories'] = array(0 => (string)$categoryId);
+	}
+	
 	if ($atts === true) {
 		$redirect = usp_currentPageURL();
 	}
