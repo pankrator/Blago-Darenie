@@ -18,7 +18,6 @@ if (isset($authorName)) {
 	<?php if ($usp_options['usp_form_content'] !== '') {
 		echo $usp_options['usp_form_content'];
 	} ?>
-
 	<form id="usp_form" method="post" data-validate="parsley" enctype="multipart/form-data" action="" novalidate>
 
 		<div class="usp-error"></div>

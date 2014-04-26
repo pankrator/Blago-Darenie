@@ -230,7 +230,7 @@ add_shortcode ('user-submitted-posts', 'usp_display_form');
 function usp_display_form($atts=array(), $content=null) {
 	global $usp_options;
 	$categoryId = intval($_GET['category']);
-	
+
 	if($categoryId)
 	{
 		$usp_options['categories'] = array(0 => (string)$categoryId);
@@ -248,6 +248,11 @@ function usp_display_form($atts=array(), $content=null) {
 		include (WP_PLUGIN_DIR . '/' . basename(dirname(__FILE__)) . '/views/submission-form.php');
 		return ob_get_clean();
 	}
+}
+
+add_shortcode('test_charity', 'test');
+function test() {
+	include("test.php");
 }
 
 // template tag

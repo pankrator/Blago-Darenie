@@ -10,7 +10,22 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+	$promise = true;
+	$categories = get_the_category();
+	$category_id = $categories[0]->cat_ID;
+	$tags = wp_get_post_tags(get_the_ID());
+	foreach($tags as $tag) {
+		if($tag->name == "Main") {
+			$promise_anchor = '<input type="button" id="user-submitted-post" name="user-submitted-post" href="http://localhost/darenie/new-post-2/?category='.$category_id.'" value="Добави обещание" />';
+			$promise = false;
+		}
+	}
+	
+	$offset = $promise ? "style='margin-left: 100px'" : "";
+?> 
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo $offset; ?> >
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
@@ -40,6 +55,9 @@
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+		<?php 
+			echo $promise_anchor;
+		?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
