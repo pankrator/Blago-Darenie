@@ -23,6 +23,8 @@
 		}
 	}
 	
+	$_SESSION['paybutton_name'] = $promise ? "Закупи" : "Дари";
+	
 	$offset = $promise ? "style='margin-left: 100px'" : "";
 ?> 
 
@@ -59,6 +61,9 @@
 		<?php 
 			echo $promise_anchor;
 		?>
+		<div style="float: right; ">
+			<?php echo do_shortcode('[wp_cart_button name="Test Product" price="29.95"]'); ?>
+		</div>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
