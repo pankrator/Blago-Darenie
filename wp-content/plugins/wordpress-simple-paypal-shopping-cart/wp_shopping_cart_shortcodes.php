@@ -2,6 +2,7 @@
 
 function wp_cart_button_handler($atts){
 	extract(shortcode_atts(array(
+		'email' => '',
 		'name' => '',
                 'item_number' =>'',
 		'price' => '',

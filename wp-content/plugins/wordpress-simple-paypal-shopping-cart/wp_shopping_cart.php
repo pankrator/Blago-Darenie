@@ -565,7 +565,6 @@ function print_wp_cart_button_new($content)
 				{
 				    $replacement .= '<input type="submit" value="'.$addcart.'" />';
 				} 
-
                 $replacement .= '<input type="hidden" name="product" value="'.$pieces['0'].'" /><input type="hidden" name="price" value="'.$pieces['1'].'" />';
                 $replacement .= '<input type="hidden" name="product_tmp" value="'.$pieces['0'].'" />';
                 if (sizeof($pieces) >2 )
@@ -678,7 +677,8 @@ function print_wp_cart_button_for_product($name, $price, $shipping=0, $var1='', 
                 $replacement .= '<input type="submit" value="'.$addcart.'" />';
             }
         }
-                
+         
+		$replacement .= '<input type="hidden" name="wp_cart_email" value="'.$atts['email'].'" />';
         $replacement .= '<input type="hidden" name="product" value="'.$name.'" /><input type="hidden" name="price" value="'.$price.'" /><input type="hidden" name="shipping" value="'.$shipping.'" /><input type="hidden" name="addcart" value="1" /><input type="hidden" name="cartLink" value="'.cart_current_page_url().'" />';
         $replacement .= '<input type="hidden" name="product_tmp" value="'.$name.'" />';
         isset($atts['item_number'])?$item_num = $atts['item_number']: $item_num = '';
