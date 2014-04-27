@@ -1005,7 +1005,7 @@ ul.nav-menu .focus > ul,
 .entry-summary,
 .entry-meta {
 	margin: 0 auto;
-	max-width: 604px;
+	max-width: 1200px;
 	width: 100%;
 }
 
@@ -1013,7 +1013,7 @@ ul.nav-menu .focus > ul,
 .sidebar .entry-content,
 .sidebar .entry-summary,
 .sidebar .entry-meta {
-	max-width: 1040px;
+	max-width: 900px;
 	padding: 0 376px 0 60px;
 }
 
@@ -2073,7 +2073,7 @@ footer.entry-meta {
 
 .page-content {
 	margin: 0 auto;
-	max-width: 604px;
+	max-width: 704px;
 	padding: 40px 0;
 	width: 100%;
 }
