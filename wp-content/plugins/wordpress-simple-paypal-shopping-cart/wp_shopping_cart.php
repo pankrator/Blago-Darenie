@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
 Plugin Name: WP Simple Paypal Shopping cart
 Version: v3.9.5
@@ -419,14 +419,21 @@ function print_wp_shopping_cart()
             $output .= '<input onclick="payButton()" type="image" src="'.WP_CART_URL.'/images/'.(__("paypal_checkout_EN.png", "WSPSC")).'" id="paypalButton" style="float: right" class="wp_cart_checkout_button" alt="'.(__("Make payments with PayPal - it\'s fast, free and secure!", "WSPSC")).'" />';
 			$givenEmail = $_SESSION['cart_email'];
 			$output .= '<input type="hidden" id="givenEmail" value="'.$givenEmail.'" />';
-			
+			$output .= 'Ващият e-mail:<input type="text" id="giverEmail"/>';
 			?>
 			
 			<script>
 				function payButton() {
-					jQuery.post("/darenie/custom/sendEmails.php", {giverEmail: jQuery("#givenEmail").val() }, function(data) {
-						alert(data);
-					});
+					jQuery.post("/darenie/custom/sendEmails.php", {givenEmail: jQuery("#givenEmail").val(), giverEmail: jQuery("#giverEmail").val() }, function(data) {
+						if(data.error) {
+							alert("Може би не сте въвели вашият e-mail!");
+						}
+						else if(data.success) {
+							window.location = "http://blago-darenie.outernetnotes.com/успешно-дарение";
+						} else {
+							alert("Имаше грешка при прихващането на Вашите данни! Моля опитайте отново!");
+						}
+					}, "json");
 				}
 			</script>
 			
