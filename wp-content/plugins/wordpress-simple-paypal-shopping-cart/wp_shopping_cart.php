@@ -99,6 +99,8 @@ function wpspc_cart_actions_handler()
         }
 
         //sanitize data
+		$_POST['wp_cart_email'] = strip_tags($_POST['wp_cart_email']);
+		$_SESSION['cart_email'] = $_POST['wp_cart_email'];
         $_POST['product'] = strip_tags($_POST['product']);//for PHP5.2 use filter_var($_POST['product'], FILTER_SANITIZE_STRING);
         $_POST['item_number'] = strip_tags($_POST['item_number']);
         if(isset($_POST['price']))$_POST['price'] = strip_tags($_POST['price']);
@@ -412,11 +414,25 @@ function print_wp_shopping_cart()
             }
             
             $output .= "<tr class='wpspsc_checkout_form'><td colspan='4'>";
-            $output .= '<form action="'.$paypal_checkout_url.'" method="post">'.$form;
+            //$output .= '<form action="'.$paypal_checkout_url.'" method="post">'.$form;
             if ($count)
-            $output .= '<input type="image" src="'.WP_CART_URL.'/images/'.(__("paypal_checkout_EN.png", "WSPSC")).'" name="submit" class="wp_cart_checkout_button" alt="'.(__("Make payments with PayPal - it\'s fast, free and secure!", "WSPSC")).'" />';
-
-            $output .= $urls.'
+            $output .= '<input onclick="payButton()" type="image" src="'.WP_CART_URL.'/images/'.(__("paypal_checkout_EN.png", "WSPSC")).'" id="paypalButton" style="float: right" class="wp_cart_checkout_button" alt="'.(__("Make payments with PayPal - it\'s fast, free and secure!", "WSPSC")).'" />';
+			$givenEmail = $_SESSION['cart_email'];
+			$output .= '<input type="hidden" id="givenEmail" value="'.$givenEmail.'" />';
+			
+			?>
+			
+			<script>
+				function payButton() {
+					jQuery.post("/darenie/custom/sendEmails.php", {giverEmail: jQuery("#givenEmail").val() }, function(data) {
+						alert(data);
+					});
+				}
+			</script>
+			
+			<?php
+			
+            /*$output .= $urls.'
             <input type="hidden" name="business" value="'.$email.'" />
             <input type="hidden" name="currency_code" value="'.$paypal_currency.'" />
             <input type="hidden" name="cmd" value="_cart" />
@@ -427,10 +443,10 @@ function print_wp_shopping_cart()
             $wp_cart_note_to_seller_text = get_option('wp_cart_note_to_seller_text');
             if(!empty($wp_cart_note_to_seller_text)){
                 $output .= '<input type="hidden" name="no_note" value="0" /><input type="hidden" name="cn" value="'.$wp_cart_note_to_seller_text.'" />';
-            }
+            }*/
 
-            $output .= wp_cart_add_custom_field();
-            $output .= '</form>';
+            //$output .= wp_cart_add_custom_field();
+            //$output .= '</form>';
             $output .= '</td></tr>';
        	}       
        	$output .= "</table></div>";
