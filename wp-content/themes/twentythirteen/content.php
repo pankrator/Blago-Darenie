@@ -88,7 +88,7 @@
 					</span>
 					<script>
 						document.getElementById("donation").onchange = function(){
-							jQuery.post("/darenie/getDonation.php", {price: jQuery("#donation").val() }, function(data) {
+							jQuery.post("/getDonation.php", {price: jQuery("#donation").val() }, function(data) {
 								jQuery("#pesho").html(data);
 							});
 						}

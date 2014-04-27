@@ -10,5 +10,13 @@
  */
  
 	require("charity-admin.php");
- 
+ 	
+
+// SEND EMAIL ONCE POST IS PUBLISHED
+
+function notify_new_post($post_id) {
+   echo "<script>console.log('success')</console>";
+}
+
+add_action( 'publish_post', 'notify_new_post' );
 ?>

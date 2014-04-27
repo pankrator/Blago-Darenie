@@ -391,6 +391,9 @@ input[type="radio"] {
 	padding: 0;
 }
 
+.hide-shit {
+display: none;
+}
 input[type="search"] {
 	-webkit-appearance: textfield;
 	padding-right: 2px; /* Don't cut off the webkit search cancel button */

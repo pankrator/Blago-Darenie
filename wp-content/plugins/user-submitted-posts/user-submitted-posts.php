@@ -124,8 +124,8 @@ function usp_checkForPublicSubmission() {
 		/** PREPARE content to show as expected **/
 		$customContent = "<div>Автор: <a href='$link'>".$authorName."</a>";
 		$customContent .= "<span style='float: right;'>".$price." лв.</span></div>";
-		$customContent .= "<span style='display: none' alt=".$price.">[[PRICE]]".$price."[[PRICEEND]]</span>";
-		$customContent .= "<span style='display: none' alt=".$email.">[[EMAIL]]".$email."[[ENDEMAIL]]</span>";
+		$customContent .= "<span class='hide-shit'>[[PRICE]]".$price."[[PRICEEND]]</span>";
+		$customContent .= "<span class='hide-shit'>[[EMAIL]]".$email."[[ENDEMAIL]]</span>";
 		
 		$content .= $customContent;
 		

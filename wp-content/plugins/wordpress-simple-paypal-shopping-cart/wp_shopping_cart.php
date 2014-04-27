@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
 Plugin Name: WP Simple Paypal Shopping cart
 Version: v3.9.5
@@ -424,7 +424,11 @@ function print_wp_shopping_cart()
 			
 			<script>
 				function payButton() {
-					jQuery.post("/darenie/custom/sendEmails.php", {givenEmail: jQuery("#givenEmail").val(), giverEmail: jQuery("#giverEmail").val() }, function(data) {
+					jQuery.post("/custom/sendEmails.php", {givenEmail: jQuery("#givenEmail").val(), giverEmail: jQuery("#giverEmail").val() }, function(data) {
+						if(data.link) {
+	window.location = data.link;
+	return;
+}
 						if(data.error) {
 							alert("Може би не сте въвели вашият e-mail!");
 						}
