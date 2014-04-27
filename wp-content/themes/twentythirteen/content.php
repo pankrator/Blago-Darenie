@@ -69,7 +69,27 @@
 			echo $promise_anchor;
 		?>
 		<div style="float: right; ">
-			<?php echo do_shortcode('[wp_cart_button name="'.get_the_title().'" price="'.$price.'"]'); ?>
+			<?php 
+				if($promise)
+				{
+					echo do_shortcode('[wp_cart_button name="'.get_the_title().'" price="'.$price.'"]');
+				}
+				else
+				{
+					?>
+					<label id="" for="donation">Безвъзмездно дарение:</label><br/>
+					<input type="text" id="donation" name="donation" value="0" /><br/>
+					<span id="pesho" style="display: inline-block;"></span>
+					<script>
+						document.getElementById("donation").onchange = function(){
+							jQuery.post("/darenie/getDonation.php", {price: jQuery("#donation").val() }, function(data) {
+								jQuery("#pesho").html(data);
+							});
+						}
+					</script>
+					<?php
+				}
+			?>
 		</div>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
