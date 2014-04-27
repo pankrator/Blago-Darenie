@@ -71,10 +71,12 @@ Supports Thumbs: true
 }
 .theme-default .nivo-caption a {
     color:#fff;
-    border-bottom:1px dotted #fff;
+    /* border-bottom:1px dotted #fff; */
+	text-decoration:none;
 }
 .theme-default .nivo-caption a:hover {
     color:#fff;
+	text-decoration:none;
 }
 
 .theme-default .nivo-controlNav.nivo-thumbs-enabled {
